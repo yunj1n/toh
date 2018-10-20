@@ -1,30 +1,54 @@
-<p>
+<!--<p>
   heroes works! {{hero.id}} , {{hero.name}}
-</p>
+</p>-->
 
-<!-- attrbute 바인딩 -->
+<!-- attrbute 바인딩
 <div>
   <button [disabled]="isSpecial">propery binding button</button>
-</div>
+</div> -->
 
-<!-- class 바인딩 -->
+<!-- class 바인딩
 <div>
   <div [class.special]="isSpecial">class binding button</div>
-</div>
+</div> -->
 
-<!--  style 바인딩 -->
+<!--  style 바인딩
 <div>
   <button [style.color]="isSpecial ? 'red' : 'green'">style binding button</button>
-</div>
+</div> -->
 
-<!-- EVENT 바인딩 -->
+<!-- EVENT 바인딩
 <div>
   <button (click)="onSave($event)">event binding save button</button>
-</div>
+</div> -->
 
-<!-- TWO WAY BINDING -->
+<!-- TWO WAY BINDING
 <div>
   <label>name:
     <input [(ngModel)]="hero.name" placeholder="name">
   </label>
+</div> -->
+
+
+<h2>My Heroes</h2>
+<ul>
+  <!-- for문 -->
+  <li class="d-flex m-1" *ngFor="let hero of heroes" (click)="onSelect(hero)">
+    <span  class="rounded-left p-2 bg-primary text-light">{{hero.id}}</span>
+    <div class="rounded-right p-2 bg-light text-dark w-50">{{hero.name}}</div>
+  </li>
+</ul>
+
+
+<!-- 상단 리스트에서 아이템을 클릭시 표시되는 상세 화면 -->
+<!-- if문 -->
+<div *ngIf="selectedHero"> <!--or selectedHero != undefined-->
+  <h2>{{ selectedHero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.name" placeholder="name">
+    </label>
+  </div>
 </div>

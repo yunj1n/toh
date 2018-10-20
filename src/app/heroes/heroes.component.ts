@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Hero} from '../hero';
+import {HEROES} from '../mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -13,8 +14,10 @@ export class HeroesComponent implements OnInit {
     name: 'Winstorm'
   };*/
   hero: Hero;
-
+  heroes = HEROES;
+  selectedHero: Hero;
   isSpecial = true;
+
 
   constructor() {
     // new 로 객체 생성
@@ -29,6 +32,10 @@ export class HeroesComponent implements OnInit {
 
   onSave(event) {
     console.log(event);
+  }
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
   }
 
 }
