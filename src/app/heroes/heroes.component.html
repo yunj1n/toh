@@ -1,3 +1,30 @@
 <p>
-  heroes works!
+  heroes works! {{hero.id}} , {{hero.name}}
 </p>
+
+<!-- attrbute 바인딩 -->
+<div>
+  <button [disabled]="isSpecial">propery binding button</button>
+</div>
+
+<!-- class 바인딩 -->
+<div>
+  <div [class.special]="isSpecial">class binding button</div>
+</div>
+
+<!--  style 바인딩 -->
+<div>
+  <button [style.color]="isSpecial ? 'red' : 'green'">style binding button</button>
+</div>
+
+<!-- EVENT 바인딩 -->
+<div>
+  <button (click)="onSave($event)">event binding save button</button>
+</div>
+
+<!-- TWO WAY BINDING -->
+<div>
+  <label>name:
+    <input [(ngModel)]="hero.name" placeholder="name">
+  </label>
+</div>
